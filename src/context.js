@@ -7,14 +7,13 @@ const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState({ show: false, msg: "" });
   const [movies, setMovies] = useState([]);
-  const [query, setQuery] = useState("batman");
+  const [query, setQuery] = useState("sup");
 
   const fetchMovies = async (url) => {
     setLoading(true);
     try {
       const response = await fetch(url);
       const data = await response.json();
-
       if (data.Response === "True") {
         setMovies(data.Search);
         setError({ show: false, msg: "" });
@@ -27,6 +26,7 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  console.log(error);
   console.log(movies);
 
   useEffect(() => {
